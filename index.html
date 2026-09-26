@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C++ Intro to Computer Programming | CS.102</title>
+<style>
+:root{--bg:#f6f8fc;--card:#fff;--text:#172033;--muted:#667085;--primary:#4f46e5;--primary2:#7c3aed;--good:#15803d;--bad:#dc2626;--line:#e5e7eb}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{max-width:1200px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:800;font-size:18px}.brand span{color:var(--primary)}
+button,.btn{border:0;border-radius:10px;padding:10px 14px;background:var(--primary);color:white;font-weight:700;cursor:pointer}
+button.secondary{background:#eef2ff;color:#3730a3}button:hover{filter:brightness(.96)}
+main{max-width:1200px;margin:auto;padding:28px 20px}.hero{background:linear-gradient(135deg,#312e81,#7c3aed);color:#fff;border-radius:24px;padding:42px 34px;box-shadow:0 18px 45px rgba(49,46,129,.2)}
+.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.05;margin:8px 0 12px}.hero p{max-width:760px;color:#ede9fe;font-size:17px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.pill{background:rgba(255,255,255,.15);padding:6px 10px;border-radius:999px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:22px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 8px 24px rgba(16,24,40,.05)}
+.card h3{margin-top:0}.muted{color:var(--muted)}.section{margin-top:34px}.section h2{font-size:28px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}.tab{background:#fff;color:#344054;border:1px solid var(--line)}.tab.active{background:var(--primary);color:#fff}
+.progress{height:9px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin:10px 0 18px}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--primary),var(--primary2));transition:.3s}
+pre{background:#111827;color:#e5e7eb;padding:16px;border-radius:14px;overflow:auto}code{font-family:Consolas,monospace}
+.question{border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0;background:#fff}.qtop{display:flex;justify-content:space-between;gap:10px}.diff{font-size:12px;padding:4px 8px;border-radius:999px;background:#f2f4f7;color:#475467}
+.option{display:block;margin:8px 0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer}.option:hover{background:#f9fafb}.option input{margin-right:8px}
+.feedback{margin-top:10px;padding:10px;border-radius:10px;display:none}.correct{background:#ecfdf3;color:#166534}.incorrect{background:#fef2f2;color:#991b1b}
+.answer{display:none;margin-top:10px;padding:10px;background:#f8fafc;border-left:4px solid var(--primary);border-radius:8px}
+footer{text-align:center;padding:35px 20px;color:var(--muted)}
+.search{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:15px}
+.small{font-size:13px}.score{font-size:24px;font-weight:800;color:var(--primary)}
+.hide{display:none!important}
+@media(max-width:650px){.hero{padding:30px 22px}.nav{align-items:flex-start}.hero h1{font-size:34px}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand">CS.102 <span>× C++</span></div><button class="secondary" onclick="toggleDark()">🌙 Theme</button></div></header>
+<main>
+<section class="hero">
+<div class="small">FACULTY OF INFORMATION TECHNOLOGY · MUST</div>
+<h1>C++ Intro to Computer Programming</h1>
+<p>Lecture 1 interactive study hub — summaries, examples, graded practice, output questions, and error spotting.</p>
+<div class="pills"><span class="pill">Lecture 1</span><span class="pill">20 MCQ</span><span class="pill">20 Output</span><span class="pill">10 Errors</span><span class="pill">Judy Ahmed</span></div>
+</section>
+
+<section class="section">
+<h2>📚 Lecture 1 — Quick Summary</h2>
+<div class="grid">
+<div class="card"><h3>Computer Science</h3><p>Computer Science is the study of computers, algorithms, and problem-solving. It includes theoretical foundations and practical applications.</p></div>
+<div class="card"><h3>Programming</h3><p>Programming is writing instructions that a computer can understand and execute, step by step.</p></div>
+<div class="card"><h3>Hardware & Software</h3><p><b>Hardware</b> is the physical equipment. <b>Software</b> is the programs/instructions that control hardware.</p></div>
+<div class="card"><h3>Computer Units</h3><p>Input, Output, Memory, ALU, Control Unit, and Secondary Storage are the logical units discussed in Lecture 1.</p></div>
+<div class="card"><h3>Data Hierarchy</h3><p>Bit → Character → Field → Record → File → Database.</p></div>
+<div class="card"><h3>Languages</h3><p>Machine language uses binary; assembly uses mnemonics; high-level languages use more human-readable statements.</p></div>
+<div class="card"><h3>Why C++?</h3><p>C++ is presented as a general-purpose, compiled, high-performance language used in games, operating systems, finance, simulations, and embedded systems.</p></div>
+<div class="card"><h3>Program Development</h3><p>Analyze the problem → design an algorithm → implement it in code → verify → maintain the program.</p></div>
+</div>
+</section>
+
+<section class="section card">
+<h2>💻 First C++ Program</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Welcome to Computer Science with C++!" &lt;&lt; endl;
+    return 0;
+}</code></pre>
+<div class="grid">
+<div><b>#include &lt;iostream&gt;</b><br><span class="muted">Provides input/output facilities.</span></div>
+<div><b>using namespace std;</b><br><span class="muted">Makes standard-library names simpler to write.</span></div>
+<div><b>int main()</b><br><span class="muted">The starting point of the program.</span></div>
+<div><b>return 0;</b><br><span class="muted">Indicates successful completion.</span></div>
+</div>
+</section>
+
+<section class="section">
+<h2>🧠 Practice Bank</h2>
+<div class="card">
+<input id="search" class="search" placeholder="Search questions..." oninput="filterQuestions()">
+<div class="tabs">
+<button class="tab active" onclick="showBank('mcq',this)">20 MCQ</button>
+<button class="tab" onclick="showBank('output',this)">20 Output</button>
+<button class="tab" onclick="showBank('error',this)">10 Errors</button>
+</div>
+<div id="score" class="score">Score: 0</div>
+<div class="progress"><div id="bar" class="bar"></div></div>
+<div id="bank"></div>
+</div>
+</section>
+
+<section class="section card">
+<h2>🛠️ Mini C++ Playground</h2>
+<p class="muted">This is a local practice checker, not a full compiler. Try the structure of a simple program.</p>
+<textarea id="code" style="width:100%;min-height:180px;padding:14px;border:1px solid var(--line);border-radius:12px;font-family:Consolas,monospace">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Hello";
+    return 0;
+}</textarea>
+<br><br><button onclick="checkCode()">Check Structure</button>
+<div id="codeResult" class="feedback"></div>
+</section>
+</main>
+<footer>© 2026 Judy Ahmed · CS.102 Lecture 1 · C++ Intro to Computer Programming</footer>
+
+<script>
+const mcq=[
+["What is Computer Science mainly concerned with?","The study of computers, algorithms, and problem-solving",["Only computer hardware","Only typing code","The study of computers, algorithms, and problem-solving","Only databases"],"Easy"],
+["Which is software?","A program or sequence of instructions",["Keyboard","Monitor","CPU","A program or sequence of instructions"],"Easy"],
+["What is the smallest unit of data?","Bit",["Field","Record","Bit","File"],"Easy"],
+["A bit can represent:","0 or 1",["0 to 9","A to Z","0 or 1","Any word"],"Easy"],
+["Which is an example of hardware?","Keyboard",["C++","Compiler","Keyboard","Algorithm"],"Easy"],
+["What does the control unit do?","Directs and coordinates computer operations",["Prints documents","Stores files permanently","Directs and coordinates computer operations","Performs only addition"],"Medium"],
+["What does the ALU perform?","Mathematical calculations and logical operations",["Only input","Mathematical calculations and logical operations","Only storage","Web browsing"],"Medium"],
+["Which sequence matches the data hierarchy?","Bit → Character → Field → Record → File → Database",["File → Bit → Database → Field","Bit → Character → Field → Record → File → Database","Database → File → Bit → Record","Character → Database → Bit → File"],"Medium"],
+["Assembly language uses:","Mnemonics such as ADD and SUB",["Only 0s and 1s","Mnemonics such as ADD and SUB","Only pictures","SQL tables"],"Easy"],
+["Assembly code needs an:","Assembler",["Interpreter only","Assembler","Printer","Database"],"Easy"],
+["Machine language consists of:","Binary instructions",["English sentences","Binary instructions","C++ classes","Database tables"],"Easy"],
+["Which is a high-level language example from the lecture?","C++",["Machine code","C++","Binary","Assembly"],"Easy"],
+["What translates assembly language to machine language?","Assembler",["Compiler","Assembler","CPU","ALU"],"Medium"],
+["What is one advantage of high-level languages?","Readability",["Less readability","Readability","They use only binary","They require no syntax"],"Easy"],
+["C++ was developed as an extension of:","C",["Python","Java","C","BASIC"],"Easy"],
+["C++ is described in the material as:","General-purpose, compiled, high-performance",["Only interpreted","General-purpose, compiled, high-performance","A database","An operating system"],"Medium"],
+["Which is an application of C++ mentioned in the material?","Games",["Only word processing","Games","Only spreadsheets","Only web pages"],"Easy"],
+["What is an algorithm?","A step-by-step problem-solving process",["A storage device","A step-by-step problem-solving process","A compiler error","A monitor"],"Easy"],
+["What is the first step in the program development life cycle?","Analyze the problem",["Maintenance","Analyze the problem","Delete the code","Compile twice"],"Medium"],
+["Which is the starting point of a C++ program?","main()",["cout","iostream","main()","return 0"],"Easy"]
+];
+
+const outputs=[
+['cout << 5 + 3;','8'],['cout << 10 - 4;','6'],['cout << 2 * 5;','10'],['cout << 12 / 3;','4'],
+['cout << "Hi";','Hi'],['cout << 7;','7'],['cout << 2 + 3 * 4;','14'],['cout << (2 + 3) * 4;','20'],
+['cout << "C++" << " " << "CS";','C++ CS'],['cout << 10 % 3;','1'],['int x=5; cout << x;','5'],['int x=4; x=x+2; cout << x;','6'],
+['int a=3,b=2; cout << a+b;','5'],['int a=3,b=2; cout << a*b;','6'],['cout << (10 > 5);','1'],
+['cout << (2 == 3);','0'],['cout << "A" << endl << "B";','A (new line) B'],['int x=10; cout << x/2;','5'],
+['int x=9; cout << x%2;','1'],['cout << "Welcome to CS.102";','Welcome to CS.102']
+];
+
+const errors=[
+['#include iostream','Missing angle brackets around iostream.','Use #include <iostream>.'],
+['int main() { cout << "Hi"; ','Missing closing brace for main.','Add } at the end.'],
+['int main() { cout << "Hi" }','Missing semicolon after the cout statement.','Write cout << "Hi";'],
+['int main() { return 0;','Missing closing brace.','Add }.'],
+['cout << "Hello"','Missing semicolon.','Write cout << "Hello";'],
+['int main( { return 0; }','main() has incorrect parentheses.','Use int main() { ... }'],
+['using namespace std','Missing semicolon.','Write using namespace std;'],
+['cout << "Hi" << endl','Missing semicolon at the end.','Add ;'],
+['int x = ;','The variable has no value after =.','Give x a value, e.g. int x = 5;'],
+['return;','For the shown int main(), return should provide an integer value.','Use return 0;']
+];
+
+let current='mcq',score=0,answered=0;
+
+function showBank(type,btn){
+ current=type;document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));btn.classList.add('active');render();
+}
+function render(){
+ const bank=document.getElementById('bank'),q=(current==='mcq'?mcq:(current==='output'?outputs:errors));
+ bank.innerHTML='';
+ q.forEach((item,i)=>{
+   const div=document.createElement('div');div.className='question';div.dataset.text=JSON.stringify(item).toLowerCase();
+   if(current==='mcq'){
+     div.innerHTML=`<div class="qtop"><b>${i+1}. ${item[0]}</b><span class="diff">${item[3]}</span></div>
+     ${item[2].map(o=>`<label class="option"><input type="radio" name="q${i}" value="${escapeAttr(o)}"> ${o}</label>`).join('')}
+     <button onclick="checkMCQ(${i},this)">Check</button><div class="feedback"></div>`;
+   }else if(current==='output'){
+     div.innerHTML=`<div class="qtop"><b>${i+1}. What is the output?</b><span class="diff">${i<7?'Easy':i<14?'Medium':'Hard'}</span></div>
+     <pre><code>${item[0]}</code></pre><button class="secondary" onclick="this.nextElementSibling.style.display='block'">Show Answer</button><div class="answer">${item[1]}</div>`;
+   }else{
+     div.innerHTML=`<div class="qtop"><b>${i+1}. Find the error:</b><span class="diff">${i<4?'Easy':i<8?'Medium':'Hard'}</span></div>
+     <pre><code>${item[0]}</code></pre><button class="secondary" onclick="this.nextElementSibling.style.display='block'">Show Answer</button><div class="answer"><b>${item[1]}</b><br>${item[2]}</div>`;
+   }
+   bank.appendChild(div);
+ });
+ filterQuestions();
+}
+function escapeAttr(s){return s.replace(/"/g,'&quot;')}
+function checkMCQ(i,btn){
+ const box=btn.parentElement,chosen=box.querySelector(`input[name="q${i}"]:checked`),fb=box.querySelector('.feedback');
+ if(!chosen){fb.style.display='block';fb.className='feedback incorrect';fb.textContent='Choose an answer first.';return}
+ if(chosen.value===mcq[i][1]){fb.className='feedback correct';fb.textContent='✓ Correct!';score++;}else{fb.className='feedback incorrect';fb.textContent='✗ Not quite. Correct answer: '+mcq[i][1]}
+ fb.style.display='block';answered++;document.getElementById('score').textContent='Score: '+score+' / '+answered;document.getElementById('bar').style.width=Math.min(100,answered/20*100)+'%';btn.disabled=true;
+}
+function filterQuestions(){
+ const term=document.getElementById('search').value.toLowerCase();
+ document.querySelectorAll('.question').forEach(x=>x.classList.toggle('hide',term && !x.dataset.text.includes(term)));
+}
+function checkCode(){
+ const c=document.getElementById('code').value,r=document.getElementById('codeResult');
+ const checks=[['#include','Missing #include.'],['iostream','iostream is missing.'],['main','main() is missing.'],['cout','cout is missing.'],['return 0','return 0 is missing.'],['{','Opening brace is missing.'],['}','Closing brace is missing.']];
+ const bad=checks.find(x=>!c.includes(x[0]));
+ r.style.display='block';
+ if(bad){r.className='feedback incorrect';r.textContent='✗ '+bad[1]}else{r.className='feedback correct';r.textContent='✓ The basic structure looks good!'}
+}
+function toggleDark(){
+ document.body.classList.toggle('dark');
+ if(document.body.classList.contains('dark')){
+   document.documentElement.style.setProperty('--bg','#0f172a');document.documentElement.style.setProperty('--card','#111827');document.documentElement.style.setProperty('--text','#f8fafc');document.documentElement.style.setProperty('--muted','#cbd5e1');document.documentElement.style.setProperty('--line','#334155');
+ }else{location.reload()}
+}
+render();
+</script>
+</body>
+</html>
